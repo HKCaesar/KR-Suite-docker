@@ -107,9 +107,12 @@ RUN git clone https://github.com/madgik/madis.git
 
 
 # DOWNLOAD AND BUILD strabon
-RUN hg clone http://hg.strabon.di.uoa.gr/Strabon/ \
- && cd Strabon \
- && mvn clean package
+RUN wget http://hg.strabon.di.uoa.gr/Strabon/archive/tip.zip \
+  && unzip tip.zip \
+  && mv Strabon* Strabon \
+  && cd Strabon \
+  && mvn clean package
+
 
 RUN cp /Strabon/endpoint/target/strabon-endpoint-3.3.2-SNAPSHOT.war /tomcat/webapps/Strabon.war \
  && rm -rf /Strabon
