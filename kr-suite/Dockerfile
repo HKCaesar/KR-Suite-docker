@@ -119,8 +119,8 @@ RUN cp /Strabon/endpoint/target/strabon-endpoint-3.3.2-SNAPSHOT.war /tomcat/weba
 
 
 # DOWNLOAD AND BUILD ontop-spatial
-RUN git clone https://github.com/ConstantB/Ontop-spatial-example.git \
- && cp /Ontop-spatial-example/ontop-spatial-precompiled/webapp/QuestSesame/openrdf-* /tomcat/webapps \
+ADD Ontop-spatial-example /Ontop-spatial-example
+RUN cp /Ontop-spatial-example/ontop-spatial-precompiled/webapp/QuestSesame/openrdf-* /tomcat/webapps \
  && rm -rf /Ontop-spatial-example
 
 
